@@ -6,6 +6,10 @@ data = {"nike": {"running shoes": {"price": 3995, "size": {"6": 3, "7": 0, "8": 
 
 coupons = {"50OFF": 0.5, "80OFF": 0.8, "20OFF": 0.2}
 
+def gst_add(total_bill):  # Function to include gst in the bill
+    return total_bill + (total_bill * 0.18)
+  
+  
 total_bill = 0
 shop_flag = True
 while shop_flag:
@@ -47,6 +51,8 @@ if coupon_flag == "Y":
         print("The Coupon is applied")
         total_bill -= total_bill*coupons[user_coupon]
 
+
+total_bill = gst_add(total_bill)
 print()
 print("Your Bill :", total_bill)
 print("Thank You")
