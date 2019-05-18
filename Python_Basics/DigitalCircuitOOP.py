@@ -99,12 +99,24 @@ class Connector:
     def getFrom(self):
         return self.fgate
 
+class NandGate(AndGate):
+    def __init__(self, n):
+        AndGate.__init__(self, n)
 
-g1 = AndGate("G1")
-g2 = AndGate("G2")
-g3 = OrGate("G3")
-g4 = NotGate("G4")
-c1 = Connector(g1, g3)
-c2 = Connector(g2, g3)
-c3 = Connector(g3, g4)
-print(g4.getoutput())
+    def performGateLogic(self):
+        return int(not AndGate.performGateLogic(self))
+
+class NorGate(OrGate):
+    def __init__(self, n):
+        OrGate.__init__(self, n)
+
+    def performGateLogic(self):
+        return int(not OrGate.performGateLogic(self))
+
+
+g1 = NorGate("G1")
+g2 = NotGate("G2")
+c1 = Connector(g1, g2)
+print(g2.getoutput())
+
+
