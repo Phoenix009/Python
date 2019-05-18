@@ -31,7 +31,7 @@ class BinaryGate(LogicGate):
 
 
     def setNextPin(self, source):
-        """source should be a gate object"""
+        """source should be a Connector object"""
         if self.pinA is None:
             self.pinA = source
         else:
