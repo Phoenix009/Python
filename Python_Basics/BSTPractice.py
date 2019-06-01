@@ -43,11 +43,6 @@ class BinarySearchTree:
             else:
                 self.insertHelper(start.right, data)
 
-#       7 <-- Root
-#    /      \
-#   6        8
-#  / \      / \
-# 4   7   7.5   9
     def search(self, item):
         if self.root == item:
             return self.root
@@ -73,6 +68,12 @@ class BinarySearchTree:
         if start.right is not None:
             self.inorderPrint(start.right)
 
+
+#       7 <-- Root
+#    /      \
+#   6        8
+#  / \      / \
+# 4   7   7.5   9
 
 bst1 = BinarySearchTree(7)
 bst1.insertTree(6)
